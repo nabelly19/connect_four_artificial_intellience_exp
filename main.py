@@ -9,7 +9,7 @@ from Utils.utils import PLAYER_PIECE, AI_PIECE, KEY_TO_COL
 
 
 def game_loop(level="intermediario"):
-    print(f"\n🎮 Iniciando Connect Four - Nível {level.upper()} 🎮\n")
+    print(f"\nIniciando Connect Four - Nível {level.upper()} \n")
 
     board = create_board()
     game_over = False
@@ -20,7 +20,7 @@ def game_loop(level="intermediario"):
     while not game_over:
         # ======== TURNO HUMANO ========
         if turn == 0:
-            col_input = input("👉 Sua jogada (A S D F G H J): ")
+            col_input = input("Sua jogada (A S D F G H J): ")
             if col_input not in KEY_TO_COL:
                 print("Entrada inválida. Use as teclas corretas.")
                 continue
@@ -28,17 +28,17 @@ def game_loop(level="intermediario"):
             col = KEY_TO_COL[col_input]
             row = get_next_open_row(board, col)
             if row is None:
-                print("⚠️ Coluna cheia, tente outra.")
+                print("Coluna cheia, tente outra.")
                 continue
 
             drop_piece(board, row, col, PLAYER_PIECE)
             print_board(board)
 
             if winning_move(board, PLAYER_PIECE):
-                print("🏆 Você venceu! Parabéns!")
+                print("Você venceu! Parabéns!")
                 game_over = True
             elif is_terminal_node(board, PLAYER_PIECE, AI_PIECE):
-                print("🤝 Empate!")
+                print("Empate!")
                 game_over = True
 
             turn = 1  # passa a vez pro agente
@@ -52,14 +52,14 @@ def game_loop(level="intermediario"):
             drop_piece(board, row, col, AI_PIECE)
 
             print_board(board)
-            print(f"⏱️ Tempo gasto: {elapsed:.3f}s")
-            print(f"📊 Avaliação do estado: {evaluate_board(board, level)}")
+            print(f"Tempo gasto: {elapsed:.3f}s")
+            print(f"Avaliação do estado: {evaluate_board(board, level)}")
 
             if winning_move(board, AI_PIECE):
-                print("🤖 O Agente venceu! Mais sorte na próxima 😎")
+                print("O Agente venceu! Mais sorte na próxima ")
                 game_over = True
             elif is_terminal_node(board, PLAYER_PIECE, AI_PIECE):
-                print("🤝 Empate!")
+                print("Empate!")
                 game_over = True
 
             turn = 0  # volta para o humano
