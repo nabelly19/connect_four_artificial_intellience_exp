@@ -22,7 +22,7 @@ def pick_best_move(board, level, time_limit=None):
 
         while True:
             elapsed = time.time() - start_time
-            if elapsed > time_limit:
+            if time_limit is not None and elapsed > time_limit:
                 break
 
             col, value, timed_out = alphabeta(
