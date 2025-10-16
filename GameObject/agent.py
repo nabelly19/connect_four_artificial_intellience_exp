@@ -3,7 +3,6 @@ from GameObject.board import get_valid_locations
 from SearchEngine.minimax import minimax
 from SearchEngine.alphabeta import alphabeta
 from Utils.utils import PLAYER_PIECE, AI_PIECE
-from Utils.evaluator import evaluate_board   
 
 def pick_best_move(board, level, time_limit=None):
     valid_locations = get_valid_locations(board)

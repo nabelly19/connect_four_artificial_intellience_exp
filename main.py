@@ -4,7 +4,8 @@ from GameObject.board import (
     get_next_open_row, drop_piece,
     winning_move, is_terminal_node
 )
-from GameObject.agent import pick_best_move, evaluate_board
+from GameObject.agent import pick_best_move
+from Utils.evaluator import evaluate_board
 from Utils.utils import PLAYER_PIECE, AI_PIECE, KEY_TO_COL
 
 
@@ -45,14 +46,14 @@ def game_loop(level="intermediario"):
 
         # ======== TURNO AGENTE ========
         else:
-            print("\n🤖 Agente está pensando...")
+            print("\n Agente está pensando...")
             start_time = time.time()
             col, value, elapsed = pick_best_move(board, level, time_limit=3)
             row = get_next_open_row(board, col)
             drop_piece(board, row, col, AI_PIECE)
 
             print_board(board)
-            print(f"Tempo gasto: {elapsed:.3f}s")
+            print(f"Tempo gasto: {elapsed:.2f}s")
             print(f"Avaliação do estado: {evaluate_board(board, level)}")
 
             if winning_move(board, AI_PIECE):

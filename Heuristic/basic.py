@@ -12,7 +12,7 @@ def evaluate_window(window, piece, opp_piece):
         score -= 4
     return score
 
-def score_position_beginner(board, piece):
+def score_position_beginner(board, piece): # this func
     score = 0
     center_array = [board[r][COLUMNS//2] for r in range(ROWS)]
     score += center_array.count(piece) * 3
@@ -30,10 +30,10 @@ def score_position_beginner(board, piece):
             score += evaluate_window(col_array[r:r+4], piece, 'R' if piece=='Y' else 'Y')
 
     # diagonal
-    for r in range(ROWS-3):
+    for r in range(ROWS-3): # positive sloped diagonal
         for c in range(COLUMNS-3):
             score += evaluate_window([board[r+i][c+i] for i in range(4)], piece, 'R' if piece=='Y' else 'Y')
-    for r in range(3, ROWS):
+    for r in range(3, ROWS): # negative sloped diagonal
         for c in range(COLUMNS-3):
             score += evaluate_window([board[r-i][c+i] for i in range(4)], piece, 'R' if piece=='Y' else 'Y')
     return score
