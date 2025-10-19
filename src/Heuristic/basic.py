@@ -12,7 +12,7 @@ def evaluate_window(window, piece, opp_piece):
         score -= 4
     return score
 
-def score_position_beginner(board, piece): # this func
+def score_position_beginner(board, piece): # this function does not consider blocking opponent's winning move
     score = 0
     center_array = [board[r][COLUMNS//2] for r in range(ROWS)]
     score += center_array.count(piece) * 3
@@ -21,7 +21,7 @@ def score_position_beginner(board, piece): # this func
     for r in range(ROWS):
         row_array = [board[r][c] for c in range(COLUMNS)]
         for c in range(COLUMNS-3):
-            score += evaluate_window(row_array[c:c+4], piece, 'R' if piece=='Y' else 'Y')
+            score += evaluate_window(row_array[c:c+4], piece, 'R' if piece=='Y' else 'Y') #the score is define by the piece being evaluated
 
     # vertical
     for c in range(COLUMNS):

@@ -1,5 +1,5 @@
 import time, random
-from GameObject.board import get_valid_locations
+from Game.board import get_valid_locations
 from SearchEngine.minimax import minimax
 from SearchEngine.alphabeta import alphabeta
 from Utils.utils import PLAYER_PIECE, AI_PIECE

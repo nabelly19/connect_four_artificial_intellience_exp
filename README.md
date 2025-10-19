@@ -1,5 +1,6 @@
-# connect_four_artificial_intellience_exp
+# connect_four_artificial_intelligence_exp
 Connect Four (or Four in a Line) is a two-player game with perfect information 💡
+This project is a graphical implementation of the classic Connect 4 game using Pygame. It allows players to compete against against an AI opponent.
 
 ## What is this game?
 
@@ -15,4 +16,18 @@ The objective is to form the first line of _four_ consecutive tokens of the same
 
 > Explanation about code bellow
 
+## Installation
 
+To run this project, you need to have Python and Pygame installed. You can install the required dependencies using pip:
+
+```
+pip install -r requirements.txt
+```
+
+## Usage
+
+To start the game, run the following command:
+
+```
+python src/main.py
+```

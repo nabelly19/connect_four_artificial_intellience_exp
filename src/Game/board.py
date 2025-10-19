@@ -1,14 +1,14 @@
-# Generates the board and manage players movement throw it
-
 from Utils.utils import ROWS, COLUMNS, EMPTY
+import numpy as np
 
 def create_board():
-    return [[EMPTY for _ in range(COLUMNS)] for _ in range(ROWS)]
+    return np.full((ROWS, COLUMNS), EMPTY)
 
 def print_board(board):
     print('\nTabuleiro (Linha 0 = topo):')
     for r in range(ROWS):
-        print(' '.join(board[r]))
+        # garante que os elementos sejam strings antes do join
+        print(' '.join(map(str, board[r])))
     print('Teclas: A S D F G H J -> Colunas 0 1 2 3 4 5 6')
     
 def is_valid_location(board, col): #verifies if the column is not full

@@ -1,5 +1,5 @@
 import random
-from GameObject.board import get_valid_locations, get_next_open_row, drop_piece, remove_piece, winning_move, is_terminal_node
+from Game.board import get_valid_locations, get_next_open_row, drop_piece, remove_piece, winning_move, is_terminal_node
 from Utils.evaluator import evaluate_board
 from Utils.utils import PLAYER_PIECE, AI_PIECE
 
